@@ -39,8 +39,11 @@ public class AuthenticationService {
     }
 
     private boolean invalid(String username, String password) {
-        // validity check of username and password
-
-        return false;
+        if (username.matches("^[A-Za-z]{3,}$")) {
+            if (password.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d$@$!%*#?&]{8,}$")) {
+                return false;
+            }
+        }
+        return true;
     }
 }
